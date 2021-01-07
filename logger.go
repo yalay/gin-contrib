@@ -33,7 +33,7 @@ func AccessLogger(logger logger) gin.HandlerFunc {
 
 		reqBody := c.GetString(ContextKeyReqBody)
 		elapsed := float64(time.Now().Sub(startTime).Nanoseconds()) / 1e6
-		logger.Infof("%s %s %s %.3fms %s %s %s", c.Request.Method, c.Request.URL.String(),
+		logger.Infof("%s %s %d %.3fms %s %s %s", c.Request.Method, c.Request.URL.String(),
 			logRspWriter.Status(), elapsed, c.ClientIP(), reqBody, logRspWriter.rspBody)
 	}
 }
